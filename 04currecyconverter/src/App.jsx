@@ -4,10 +4,10 @@ import useCurrencyInfo from "./hooks/useCurrencyinfo";
 
 
 function App() {
-  const [amount,setAmount]=useState(0);
+  const [amount,setAmount]=useState();
   const [from,setFrom]=useState('usd');
   const [to,setto]=useState('inr');
-  const [convertedamount,setConvertedAmount]=useState(0);
+  const [convertedamount,setConvertedAmount]=useState();
 
   const currencyInfo=useCurrencyInfo(from);
 
@@ -23,7 +23,6 @@ function App() {
     setConvertedAmount(amount*currencyInfo[to]);
   }
 
-  // const BackgroundImage='/Users/anuragsingh/Desktop/Code/ReactJS Learning/bg.jpg';
 
   return (
         <div
