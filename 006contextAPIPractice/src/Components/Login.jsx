@@ -1,11 +1,17 @@
-import React from 'react'
-import { useState } from 'react'
+import { useContext } from 'react';
+import { useState } from 'react';
+import UserContext from '../Context/UserContext';
 
 function Login() {
-    const [username,setUsername]=useState(null);
-    const [password,setPassword]=useState(null);
+    const [username,setUsername]=useState('');
+    const [password,setPassword]=useState('');
 
-    const setter=()=>{}
+    const {setUser}=useContext(UserContext);
+
+    const submitHandler=(e)=>{
+        e.preventDefault()
+        setUser({username,password});
+    }
   return (
     <div>
         <h1>Login</h1>
@@ -24,7 +30,7 @@ function Login() {
         />
         <button 
         type='submit'
-        onClick={setter}
+        onClick={submitHandler}
         >Submit</button>
     </div>
   )
